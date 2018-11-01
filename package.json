@@ -1,0 +1,43 @@
+{
+	"name": "nodejs-testable",
+	"version": "1.0.0",
+	"description": "NodeJS testable playground",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon entry.js",
+		"start-production": "SET NODE_ENV=prod & nodemon entry.js",
+		"test": "npm run test-integration && npm run test-unit && npm run test-contract && npm run lint",
+		"test-integration": "SET NODE_ENV=test & mocha --require esm --opts test/integration/mocha.opts test/integration/**/*.js",
+		"test-unit": "SET NODE_ENV=test & mocha --require esm --opts test/unit/mocha.opts test/unit/controllers/*.js",
+		"test-contract": "SET NODE_ENV=test & mocha --require esm --opts test/contract/mocha.opts test/contract/contracts/*.js",
+		"lint": "eslint **/*.js",
+		"lint-fix": "eslint **/*.js --fix"
+	},
+	"author": "Jeferson Kal Lyns",
+	"license": "ISC",
+	"dependencies": {
+		"bcrypt": "^3.0.2",
+		"body-parser": "^1.18.3",
+		"esm": "^3.0.84",
+		"express": "^4.16.4",
+		"http-status": "^1.2.0",
+		"jsonwebtoken": "^8.3.0",
+		"jwt-simple": "^0.5.5",
+		"nodemon": "^1.18.4",
+		"passport": "^0.4.0",
+		"passport-jwt": "^4.0.0",
+		"sequelize": "^4.41.0",
+		"sqlite3": "^4.0.2"
+	},
+	"devDependencies": {
+		"chai": "^4.2.0",
+		"eslint": "^5.7.0",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-plugin-import": "^2.14.0",
+		"joi": "^14.0.1",
+		"joi-assert": "0.0.3",
+		"mocha": "^5.2.0",
+		"supertest": "^3.3.0",
+		"testdouble": "^3.8.2"
+	}
+}

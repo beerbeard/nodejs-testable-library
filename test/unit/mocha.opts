@@ -1,0 +1,4 @@
+--require test/unit/helpers.js
+--reporter spec
+--compilers js:esm
+--slow 5000

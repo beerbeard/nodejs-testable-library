@@ -1,0 +1,4 @@
+--require test/contract/helpers.js
+--reporter spec
+--compilers js:esm
+--slow 5000
